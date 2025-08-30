@@ -7,3 +7,8 @@ extends Node
 func _physics_process(delta: float) -> void:
 	var dir = input.get_move_direction()
 	player.position += dir * speed * delta
+	
+	if dir != Vector2(0, 0):
+		player.state = player.State.RUN
+	else:
+		player.state = player.State.IDLE
