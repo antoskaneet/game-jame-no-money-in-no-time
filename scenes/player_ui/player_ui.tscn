@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fk7xyxell558"]
+[gd_scene load_steps=4 format=3 uid="uid://fk7xyxell558"]
 
 [ext_resource type="Script" uid="uid://c167kfm27iecc" path="res://scripts/player_ui/TimeEnd.gd" id="1_3csb8"]
 [ext_resource type="Script" uid="uid://ogoxyrytjjjk" path="res://scripts/player_ui/Money.gd" id="2_alpx7"]
+[ext_resource type="FontFile" uid="uid://ci218hrc2asql" path="res://assets/Tiny5-Regular.ttf" id="2_qhrld"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 
@@ -28,6 +29,7 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="TimeEndLabel" type="Label" parent="Control/MarginContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -38,10 +40,12 @@ vertical_alignment = 1
 script = ExtResource("1_3csb8")
 
 [node name="MoneyLabel" type="Label" parent="Control/MarginContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_qhrld")
 theme_override_font_sizes/font_size = 100
 text = "1.000.000$"
 horizontal_alignment = 1

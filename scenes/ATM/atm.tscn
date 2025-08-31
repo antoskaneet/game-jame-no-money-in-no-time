@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk2551ny5bn1v"]
+
+[ext_resource type="Texture2D" uid="uid://dt8cx0soklvw6" path="res://icon.svg" id="1_bqu6a"]
+[ext_resource type="Script" uid="uid://bp1rf1cxm5o4r" path="res://scripts/atm/ATM.gd" id="1_q418g"]
+[ext_resource type="PackedScene" uid="uid://ci3ekgsxetebd" path="res://scenes/money_area/money_area.tscn" id="2_vgb36"]
+[ext_resource type="AudioStream" uid="uid://ck8dco131h0ur" path="res://assets/gamejam_level.wav" id="3_vgb36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q418g"]
+size = Vector2(127, 129)
+
+[node name="ATM" type="Node2D" node_paths=PackedStringArray("audio")]
+script = ExtResource("1_q418g")
+used_count_max = 3
+amount = 5000
+audio = NodePath("MoneyArea/AudioStreamPlayer")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_bqu6a")
+
+[node name="MoneyArea" parent="." instance=ExtResource("2_vgb36")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoneyArea"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_q418g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MoneyArea"]
+stream = ExtResource("3_vgb36")
+max_polyphony = 30

@@ -1,4 +1,4 @@
 extends Node
 
-signal TimeEnd
+signal TimeEnd()
 signal change_money(money: int)
