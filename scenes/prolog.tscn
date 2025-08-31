@@ -1,25 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcw3ypgfxmfwr"]
+[gd_scene load_steps=4 format=3 uid="uid://dgwwsyxluwjof"]
 
-[ext_resource type="FontFile" uid="uid://ci218hrc2asql" path="res://assets/Tiny5-Regular.ttf" id="1_mv6eh"]
-[ext_resource type="Script" uid="uid://i4v5xbfostoh" path="res://scripts/prolog.gd" id="1_ti4kg"]
-[ext_resource type="Texture2D" uid="uid://knfw6d68vjif" path="res://assets/bg.png" id="2_ti4kg"]
+[ext_resource type="Script" uid="uid://i4v5xbfostoh" path="res://scripts/prolog.gd" id="1_0dgab"]
+[ext_resource type="FontFile" uid="uid://ci218hrc2asql" path="res://assets/Tiny5-Regular.ttf" id="1_wvf6b"]
+[ext_resource type="Texture2D" uid="uid://knfw6d68vjif" path="res://assets/bg.png" id="2_0dgab"]
 
-[node name="EndMoney" type="Control"]
+[node name="Prolog" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ti4kg")
+script = ExtResource("1_0dgab")
 
 [node name="Label2" type="Label" parent="."]
 z_index = 2
-layout_mode = 0
+layout_mode = 2
 offset_top = 1500.0
 offset_right = 3750.0
 offset_bottom = 2122.0
-theme_override_fonts/font = ExtResource("1_mv6eh")
+theme_override_fonts/font = ExtResource("1_wvf6b")
 theme_override_font_sizes/font_size = 200
 text = "PRESS SPACE"
 horizontal_alignment = 1
@@ -32,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ti4kg")
+texture = ExtResource("2_0dgab")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -49,8 +49,17 @@ theme_override_constants/margin_bottom = 250
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_mv6eh")
+theme_override_fonts/font = ExtResource("1_wvf6b")
 theme_override_font_sizes/font_size = 90
-text = "You didn’t manage to spend all the money in time…
- The boss made it down from the skyscraper safely,
- and his company is still running."
+text = "You hate your boss.
+Why? Because he’s arrogant, greedy, and never misses a chance to remind you how small you are.
+
+So one day, you did the unthinkable…
+You stole his black card - loaded with one million dollars.
+
+Now, your boss is on his way down from his shiny 100-floor skyscraper.
+That gives you just 60 seconds…
+
+Spend it all.
+
+Before he finds out."

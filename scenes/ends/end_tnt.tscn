@@ -1,25 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcw3ypgfxmfwr"]
+[gd_scene load_steps=4 format=3 uid="uid://hhd3xjeku76m"]
 
-[ext_resource type="FontFile" uid="uid://ci218hrc2asql" path="res://assets/Tiny5-Regular.ttf" id="1_mv6eh"]
-[ext_resource type="Script" uid="uid://i4v5xbfostoh" path="res://scripts/prolog.gd" id="1_ti4kg"]
-[ext_resource type="Texture2D" uid="uid://knfw6d68vjif" path="res://assets/bg.png" id="2_ti4kg"]
+[ext_resource type="Script" uid="uid://i4v5xbfostoh" path="res://scripts/prolog.gd" id="1_5idfy"]
+[ext_resource type="FontFile" uid="uid://ci218hrc2asql" path="res://assets/Tiny5-Regular.ttf" id="2_08xvt"]
+[ext_resource type="Texture2D" uid="uid://knfw6d68vjif" path="res://assets/bg.png" id="3_kba57"]
 
-[node name="EndMoney" type="Control"]
+[node name="EndTnt" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ti4kg")
+script = ExtResource("1_5idfy")
 
 [node name="Label2" type="Label" parent="."]
 z_index = 2
-layout_mode = 0
 offset_top = 1500.0
 offset_right = 3750.0
 offset_bottom = 2122.0
-theme_override_fonts/font = ExtResource("1_mv6eh")
+theme_override_fonts/font = ExtResource("2_08xvt")
 theme_override_font_sizes/font_size = 200
 text = "PRESS SPACE"
 horizontal_alignment = 1
@@ -32,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ti4kg")
+texture = ExtResource("3_kba57")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -49,8 +48,10 @@ theme_override_constants/margin_bottom = 250
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_mv6eh")
+theme_override_fonts/font = ExtResource("2_08xvt")
 theme_override_font_sizes/font_size = 90
-text = "You didn’t manage to spend all the money in time…
- The boss made it down from the skyscraper safely,
- and his company is still running."
+text = "You blew up the boss's office in a spectacular explosion.
+ The chaos was unstoppable, alarms blaring everywhere.
+ Before you could escape, the authorities caught you,
+ and now you’re locked up in jail, facing the consequences 
+of your reckless actions))))"

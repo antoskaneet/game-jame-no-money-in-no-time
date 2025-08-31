@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://fk7xyxell558"]
+[gd_scene load_steps=6 format=3 uid="uid://fk7xyxell558"]
 
 [ext_resource type="Script" uid="uid://c167kfm27iecc" path="res://scripts/player_ui/TimeEnd.gd" id="1_3csb8"]
 [ext_resource type="Script" uid="uid://ogoxyrytjjjk" path="res://scripts/player_ui/Money.gd" id="2_alpx7"]
 [ext_resource type="FontFile" uid="uid://ci218hrc2asql" path="res://assets/Tiny5-Regular.ttf" id="2_qhrld"]
+[ext_resource type="Texture2D" uid="uid://dfa7krhqo0uwq" path="res://assets/sky.png" id="4_hgvuc"]
+[ext_resource type="Script" uid="uid://c0tl85t1s8opk" path="res://scripts/store/ButtonController.gd" id="4_n5ic4"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -23,6 +26,7 @@ offset_right = 17.0
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -51,3 +55,51 @@ text = "1.000.000$"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_alpx7")
+
+[node name="Control2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("4_n5ic4")
+
+[node name="Back" type="Button" parent="Control2"]
+offset_left = 1708.0
+offset_top = 1451.0
+offset_right = 3803.0
+offset_bottom = 2150.0
+theme_override_fonts/font = ExtResource("2_qhrld")
+theme_override_font_sizes/font_size = 90
+text = "BACK"
+
+[node name="BuySlime" type="Button" parent="Control2"]
+offset_left = 124.0
+offset_top = 258.0
+offset_right = 1079.0
+offset_bottom = 957.0
+theme_override_fonts/font = ExtResource("2_qhrld")
+theme_override_font_sizes/font_size = 90
+text = "TNT"
+
+[node name="BuyKey" type="Button" parent="Control2"]
+offset_left = 2432.0
+offset_top = 228.0
+offset_right = 3255.0
+offset_bottom = 927.0
+theme_override_fonts/font = ExtResource("2_qhrld")
+theme_override_font_sizes/font_size = 90
+text = "Key"
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+z_index = -1
+layout_mode = 0
+offset_right = 4051.0
+offset_bottom = 2364.0
+mouse_filter = 2
+texture = ExtResource("4_hgvuc")
+
+[connection signal="pressed" from="Control2/Back" to="Control2" method="_on_back_pressed"]
+[connection signal="pressed" from="Control2/BuySlime" to="Control2" method="_on_buy_slime_pressed"]
+[connection signal="pressed" from="Control2/BuyKey" to="Control2" method="_on_buy_key_pressed"]

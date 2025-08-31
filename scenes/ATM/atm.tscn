@@ -1,12 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk2551ny5bn1v"]
+[gd_scene load_steps=13 format=3 uid="uid://dk2551ny5bn1v"]
 
-[ext_resource type="Texture2D" uid="uid://dt8cx0soklvw6" path="res://icon.svg" id="1_bqu6a"]
 [ext_resource type="Script" uid="uid://bp1rf1cxm5o4r" path="res://scripts/atm/ATM.gd" id="1_q418g"]
+[ext_resource type="Texture2D" uid="uid://dg54yry2kmctw" path="res://assets/atm/atm.png" id="2_q418g"]
 [ext_resource type="PackedScene" uid="uid://ci3ekgsxetebd" path="res://scenes/money_area/money_area.tscn" id="2_vgb36"]
-[ext_resource type="AudioStream" uid="uid://ck8dco131h0ur" path="res://assets/gamejam_level.wav" id="3_vgb36"]
+[ext_resource type="Texture2D" uid="uid://6xskce0o6ip0" path="res://assets/atm/atm_broken.png" id="3_6amsy"]
+[ext_resource type="Script" uid="uid://4bwv4sfcb7pj" path="res://scripts/atm/AtmAnimation.gd" id="4_6vqhi"]
+[ext_resource type="AudioStream" uid="uid://bevu6lgf1nav7" path="res://assets/atm/money_drop.wav" id="6_6vqhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vqhi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vqhi"]
+atlas = ExtResource("3_6amsy")
+region = Rect2(56, 0, 28, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i84rx"]
+atlas = ExtResource("3_6amsy")
+region = Rect2(0, 0, 28, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeccu"]
+atlas = ExtResource("3_6amsy")
+region = Rect2(28, 0, 28, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1ntc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vqhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i84rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeccu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q418g"]
-size = Vector2(127, 129)
+size = Vector2(127, 178)
 
 [node name="ATM" type="Node2D" node_paths=PackedStringArray("audio")]
 script = ExtResource("1_q418g")
@@ -14,15 +47,29 @@ used_count_max = 3
 amount = 5000
 audio = NodePath("MoneyArea/AudioStreamPlayer")
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_bqu6a")
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6vqhi")
+
+[node name="AtmAnimation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4.30208, 4.30208)
+sprite_frames = SubResource("SpriteFrames_c1ntc")
+script = ExtResource("4_6vqhi")
+
+[node name="Atm" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 6)
+scale = Vector2(4.302, 4.302)
+texture = ExtResource("2_q418g")
 
 [node name="MoneyArea" parent="." instance=ExtResource("2_vgb36")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoneyArea"]
-position = Vector2(-0.5, -0.5)
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_q418g")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MoneyArea"]
-stream = ExtResource("3_vgb36")
+stream = ExtResource("6_6vqhi")
 max_polyphony = 30

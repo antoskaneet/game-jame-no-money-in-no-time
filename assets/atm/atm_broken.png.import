@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cquh5wyvtjj86"
-path="res://.godot/imported/hypermarket.png-8139f9513157e475a53ee81e596ca263.ctex"
+uid="uid://6xskce0o6ip0"
+path="res://.godot/imported/atm_broken.png-b88e65640d43489a28d64fd082de2094.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hypermarket.png"
-dest_files=["res://.godot/imported/hypermarket.png-8139f9513157e475a53ee81e596ca263.ctex"]
+source_file="res://assets/atm/atm_broken.png"
+dest_files=["res://.godot/imported/atm_broken.png-b88e65640d43489a28d64fd082de2094.ctex"]
 
 [params]
 

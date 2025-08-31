@@ -1,37 +1,264 @@
-[gd_scene load_steps=9 format=3 uid="uid://ntognhox0f2f"]
+[gd_scene load_steps=19 format=3 uid="uid://ntognhox0f2f"]
 
 [ext_resource type="PackedScene" uid="uid://c1qgdn85abfbf" path="res://scenes/player/player.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://b8ia7r47w3juf" path="res://scripts/Main.gd" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://dv7l15rn2hmo" path="res://assets/map/road.png" id="2_85g3d"]
 [ext_resource type="Texture2D" uid="uid://dt8cx0soklvw6" path="res://icon.svg" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://fk7xyxell558" path="res://scenes/player_ui/player_ui.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://cmljlbiok2j23" path="res://assets/map/office.png" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://ci3ekgsxetebd" path="res://scenes/money_area/money_area.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://rr6kc0hy3jqj" path="res://assets/map/hypermarket.png" id="6_choun"]
 [ext_resource type="AudioStream" uid="uid://ck8dco131h0ur" path="res://assets/gamejam_level.wav" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://ctqpntf7ods8w" path="res://assets/office_sound.mp3" id="7_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dk2551ny5bn1v" path="res://scenes/ATM/atm.tscn" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dfa7krhqo0uwq" path="res://assets/sky.png" id="7_ya4ey"]
+[ext_resource type="Script" uid="uid://wik4h4ktgyr5" path="res://scripts/offis_area2d.gd" id="8_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://8218egn1md2q" path="res://assets/store_sound.mp3" id="9_trceg"]
+[ext_resource type="Script" uid="uid://dxykv42aod042" path="res://scripts/store/store.gd" id="10_a8y0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
 size = Vector2(145, 141)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
+size = Vector2(87.606, 65.1994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
+size = Vector2(124.112, 40.4374)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jyhfs")
+
+[node name="Map" type="Node" parent="."]
+
+[node name="ATMLIST" type="Node" parent="Map"]
+
+[node name="ATM" parent="Map/ATMLIST" instance=ExtResource("7_o6xl0")]
+z_index = -1
+position = Vector2(-289, -78)
+amount = 10000
+
+[node name="ATM2" parent="Map/ATMLIST" instance=ExtResource("7_o6xl0")]
+z_index = -1
+position = Vector2(-797, -78)
+used_count_max = 2
+amount = 20000
+
+[node name="ATM3" parent="Map/ATMLIST" instance=ExtResource("7_o6xl0")]
+z_index = -1
+position = Vector2(-1397, -78)
+used_count_max = 1
+amount = 2000
+
+[node name="ATM4" parent="Map/ATMLIST" instance=ExtResource("7_o6xl0")]
+z_index = -1
+position = Vector2(611, -78)
+used_count_max = 10
+amount = 10000
+
+[node name="ATM5" parent="Map/ATMLIST" instance=ExtResource("7_o6xl0")]
+z_index = -1
+position = Vector2(995, -78)
+amount = 30000
+
+[node name="ATM6" parent="Map/ATMLIST" instance=ExtResource("7_o6xl0")]
+z_index = -1
+position = Vector2(1731, -78)
+used_count_max = 1
+amount = 200000
+
+[node name="Road" type="Sprite2D" parent="Map"]
+z_index = -1
+texture_filter = 1
+position = Vector2(50, 119)
+scale = Vector2(3.87931, 3.87931)
+texture = ExtResource("2_85g3d")
+
+[node name="Road" type="Sprite2D" parent="Map/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-255.716, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+
+[node name="Road" type="Sprite2D" parent="Map/Road/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-255.716, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+
+[node name="Road" type="Sprite2D" parent="Map/Road/Road/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(766.631, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+
+[node name="Road" type="Sprite2D" parent="Map/Road/Road/Road/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(255.2, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+
+[node name="Road2" type="Sprite2D" parent="Map/Road/Road/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-255.716, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+
+[node name="Road" type="Sprite2D" parent="Map/Road/Road/Road/Road2"]
+z_index = -1
+texture_filter = 1
+position = Vector2(766.631, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+
+[node name="Road" type="Sprite2D" parent="Map/Road/Road/Road/Road2/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(255.2, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+
+[node name="Icon" type="Sprite2D" parent="Map"]
+position = Vector2(314, -5)
+texture = ExtResource("2_sugp2")
+
+[node name="MoneyArea" parent="Map/Icon" instance=ExtResource("5_tbgi4")]
+used_count_max = 3
+amount = 999999
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Icon/MoneyArea"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="Office" type="Sprite2D" parent="Map"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-14.69, -138.75)
+scale = Vector2(3.92667, 3.92667)
+texture = ExtResource("5_choun")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Map/Office"]
+stream = ExtResource("7_eb6dy")
+autoplay = true
+max_distance = 500.0
+
+[node name="Area2D" type="Area2D" parent="Map/Office"]
+script = ExtResource("8_jkv2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Office/Area2D"]
+position = Vector2(2.46774, 22.5997)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jbj1t")
+
+[node name="Road2" type="Sprite2D" parent="Map"]
+z_index = -1
+texture_filter = 1
+position = Vector2(58, 343)
+scale = Vector2(3.87931, 3.87931)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Road" type="Sprite2D" parent="Map/Road2"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-255.716, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Road" type="Sprite2D" parent="Map/Road2/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-255.716, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Road" type="Sprite2D" parent="Map/Road2/Road/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(766.631, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Road" type="Sprite2D" parent="Map/Road2/Road/Road/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(255.2, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Road2" type="Sprite2D" parent="Map/Road2/Road/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-255.716, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Road" type="Sprite2D" parent="Map/Road2/Road/Road/Road2"]
+z_index = -1
+texture_filter = 1
+position = Vector2(766.631, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Road" type="Sprite2D" parent="Map/Road2/Road/Road/Road2/Road"]
+z_index = -1
+texture_filter = 1
+position = Vector2(255.2, -2.68221e-07)
+texture = ExtResource("2_85g3d")
+flip_h = true
+flip_v = true
+
+[node name="Hypermarket" type="Sprite2D" parent="Map"]
+z_index = -1
+texture_filter = 1
+position = Vector2(-2347, -405)
+scale = Vector2(3.21484, 3.21484)
+texture = ExtResource("6_choun")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Map/Hypermarket"]
+stream = ExtResource("9_trceg")
+volume_db = 10.903
+autoplay = true
+max_distance = 1000.0
+
+[node name="Area2D" type="Area2D" parent="Map/Hypermarket"]
+position = Vector2(0, 115.091)
+script = ExtResource("10_a8y0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Hypermarket/Area2D"]
+position = Vector2(33.7498, -5.91008)
+shape = SubResource("RectangleShape2D_trceg")
+
+[node name="Sky" type="Sprite2D" parent="Map"]
+z_index = -15
+position = Vector2(-124.5, -308)
+scale = Vector2(8.15875, 2.08444)
+texture = ExtResource("7_ya4ey")
 
 [node name="PlayerUi" parent="." instance=ExtResource("3_sugp2")]
 
 [node name="Player" parent="." instance=ExtResource("1_0wfyh")]
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(314, -5)
-texture = ExtResource("2_sugp2")
-
-[node name="MoneyArea" parent="Icon" instance=ExtResource("5_tbgi4")]
-used_count_max = 3
-amount = 999999
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/MoneyArea"]
-position = Vector2(-0.5, -8.5)
-shape = SubResource("RectangleShape2D_tbgi4")
+position = Vector2(-7, -19)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_tefeu")
+volume_db = -19.523
+autoplay = true
 
-[node name="ATM" parent="." instance=ExtResource("7_o6xl0")]
-position = Vector2(-295, 1)
+[node name="Office" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-15, -415)
+scale = Vector2(3.92667, 3.92667)
+texture = ExtResource("5_choun")
+flip_h = true
+flip_v = true
+
+[connection signal="body_entered" from="Map/Office/Area2D" to="Map/Office/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Map/Office/Area2D" to="Map/Office/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Map/Hypermarket/Area2D" to="Map/Hypermarket/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Map/Hypermarket/Area2D" to="Map/Hypermarket/Area2D" method="_on_body_exited"]

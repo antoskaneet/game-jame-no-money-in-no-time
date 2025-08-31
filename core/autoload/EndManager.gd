@@ -22,3 +22,7 @@ func _end_no_money():
 func _end_money():
 	print("_end_money")
 	get_tree().change_scene_to_file("res://scenes/ends/end_money.tscn")
+	
+func _end_tnt(tnt):
+	if tnt == 10:
+		get_tree().change_scene_to_file("res://scenes/ends/end_tnt.tscn")
